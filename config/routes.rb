@@ -10,9 +10,10 @@ Rails.application.routes.draw do
      root "users#index"
   end
 
+  #root "users#index"
   authenticated :user do
-    root "product#index"
+    root "productss#index"
   end
 
-  
+
 end

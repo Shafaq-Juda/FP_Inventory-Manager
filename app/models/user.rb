@@ -26,6 +26,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :own_products, class_name: "Product", foreign_key: "owner_id"
-
   validates :username, presence: true, uniqueness: true
+
+  private
+
+  
 end
