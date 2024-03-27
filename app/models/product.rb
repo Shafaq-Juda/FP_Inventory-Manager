@@ -24,4 +24,13 @@
 #
 class Product < ApplicationRecord
   belongs_to :owner, class_name: "User"
+  belongs_to :vendor_id, class_name: "Vendor"
+
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :description, presence: true
+  validates :vendor_id, presence: true
+  validates :quantity, presence: true
+  validates :price, presence: true
+  validates :barcode, presence: true
 end

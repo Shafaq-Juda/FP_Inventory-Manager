@@ -9,4 +9,7 @@
 #  updated_at   :datetime         not null
 #
 class Vendor < ApplicationRecord
+  has_many :own_products, class_name: "Product", foreign_key: "vendor_id"
+
+  validates :name, presence: true
 end
