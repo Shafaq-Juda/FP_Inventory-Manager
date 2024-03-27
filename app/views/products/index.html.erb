@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+
 <h1>Products</h1>
 
 <div id="products">
@@ -10,5 +12,6 @@
     </p>
   <% end %>
 </div>
+
 
 <%= link_to "New product", new_product_path %>
