@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vendors
   resources :products
   devise_for :users
   devise_for :installs
@@ -6,6 +7,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  unauthenticated do
+     root "users#index"
+  end
 
-  root "users#index"
+  authenticated :user do
+    root "product#index"
+  end
 end
