@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_26_223958) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_27_164708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "image"
+    t.integer "price"
+    t.integer "vendor_id"
+    t.integer "quantity", default: 0
+    t.string "barcode"
+    t.bigint "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_products_on_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.citext "email", default: "", null: false
@@ -30,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_26_223958) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "products", "users", column: "owner_id"
 end
