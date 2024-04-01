@@ -14,9 +14,64 @@
 
     <!-- Connect Bootstrap JavaScript and its dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      .container {
+  display: flex;
+  align-items: stretch; /* Make children stretch to the same height */
+  padding-top: 30px; /* Add padding above the content */
+}
+
+.left-wrapper,
+.right-wrapper {
+  flex: 1; /* Distribute available space equally */
+}
+
+.left-wrapper,
+.right-wrapper,
+.left-content,
+.right-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-content{ padding-top: 30px;}
+
+.right-content{ padding-top: 30px; padding-left: 10px;}
+
+.heading {
+  text-align: center; /* Center text horizontally */
+}
+
+.separator {
+  width: 2px; /* Width of the vertical line */
+  background-color: #000; /* Color of the vertical line */
+}
+    </style>
   </head>
 
   <body>
+  <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/inventory">Active</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
     <%= yield %>
   </body>
 </html>

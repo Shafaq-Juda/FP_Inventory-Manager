@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   end
 
   #root "users#index"
+  # authenticated :user do
+  #   root "products#index", as: "authenticated_root"
+  # end
+
   authenticated :user do
-    root "products#index", as: "authenticated_root"
+    root "inventory#index", as: "authenticated_root"
   end
-
-
 end
