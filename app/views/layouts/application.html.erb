@@ -51,26 +51,27 @@
   </head>
 
   <body>
-  <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="inventory#index", as: "authenticated_root">Your Inventory</a>
-  </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="products#index">Products</a></li>
-      <li><a class="dropdown-item" href="sales#index">Sales</a></li>
-      <li><a class="dropdown-item" href="vendors#index">Vendors</a></li>
-      
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="inventory#index", as: "authenticated_root">Your Inventory</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="products#index">Products</a></li>
+          <li><a class="dropdown-item" href="sales#index">Sales</a></li>
+          <li><a class="dropdown-item" href="vendors#index">Vendors</a></li>
+        </ul>
+          </li>
+        <li class="nav-item" style="margin-left: auto;">
+          <a href="<%= destroy_user_session_path %>"
+              class="nav-link"
+              data-turbo-method="delete"
+              data-turbo-confirm="Are you sure?">
+              Sign out
+          </a>
+        </li>
+      </ul>
 
  
       <%= render "shared/flashes" %>

@@ -27,9 +27,8 @@ class Product < ApplicationRecord
   belongs_to :vendor, class_name: "Vendor"
 
   validates :name, presence: true
-  validates :image, presence: true
   validates :description, presence: true
-  validates :vendor_id, presence: true
+  validates :vendor_name, presence: true
   validates :quantity, presence: true
   validates :price, presence: true
   validates :barcode, presence: true
