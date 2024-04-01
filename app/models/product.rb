@@ -28,7 +28,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :vendor_name, presence: true
+  # validates :vendor_name, presence: true
   validates :quantity, presence: true
   validates :price, presence: true
   validates :barcode, presence: true

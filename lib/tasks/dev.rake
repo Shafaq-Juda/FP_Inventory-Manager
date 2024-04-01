@@ -49,11 +49,12 @@ unless Rails.env.production?
       
         # Assign a random vendor to the product
         product.update(vendor_id: Vendor.pluck(:id).sample)
-      
+        
         # Assuming the owner is the currently logged in user or a default user
         product.update(owner: User.first)
       end
-      puts "done"
+      puts "Added #{Product.count} products to the database!"
+  
     end
 
     task add_vendors: :environment do
@@ -66,7 +67,7 @@ unless Rails.env.production?
           )
         end
       end
-      puts "done"
+      puts "Added #{Vendor.count} vendors to the database!"
     end
   end
 end
