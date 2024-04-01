@@ -1,32 +1,32 @@
 <div id="<%= dom_id product %>">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Vendor-ID</th>
+        <th>Barcode</th>
+        <th>Owner-Id</th>
+      </tr>
+    </thead>
 
-
-    <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Price</th>
-            <th>Vendor-ID</th>
-            <th>Barcode</th>
-            <th>Owner-Id</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td> <%= product.id %></td>
-            <td> <%= product.name %></td>
-            <td> <%= product.description %></td>
-            <td> <%= product.image %></td>
-            <td> <%= product.price %></td>
-            <td>  <%= product.vendor_id %></td>
-            <td>   <%= product.barcode %></td>
-            <td> <%= product.owner_id %></td>
-          </tr>
-          <!-- Add more <tr> elements for additional rows -->
-        </tbody>
-      </table>
-</div>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td> <%= product.id %></td>
+          <td> <%= product.name %></td>
+          <td> <%= product.description %></td>
+          <td> <%= product.image %></td>
+          <td> <%= product.price %></td>
+          <td>  <%= product.vendor_id %></td>
+          <td>   <%= product.barcode %></td>
+          <td> <%= product.owner_id %></td>
+        </tr>
+      <% end %>
+        <!-- Add more <tr> elements for additional rows -->
+      </tbody>
+    </table>
+  </div>
