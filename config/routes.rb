@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root "inventory#index", as: "authenticated_root"
   end
+
+  get "/sales", to: "sales#index"
+
 end
