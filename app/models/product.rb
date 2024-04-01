@@ -24,7 +24,7 @@
 #
 class Product < ApplicationRecord
   belongs_to :owner, class_name: "User"
-  belongs_to :vendor_id, class_name: "Vendor"
+  belongs_to :vendor, class_name: "Vendor"
 
   validates :name, presence: true
   validates :image, presence: true

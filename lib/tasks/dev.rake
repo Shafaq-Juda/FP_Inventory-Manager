@@ -13,8 +13,8 @@ unless Rails.env.production?
     task sample_data: [
       :environment,
       "dev:add_users",
-      "dev:add_posts",
-      "dev:add_comments"
+      "dev:add_products",
+      "dev:add_vendors"
     ] do
       puts "done adding sample data"
     end
@@ -37,17 +37,21 @@ unless Rails.env.production?
 
     task add_products: :environment do
       puts "adding products"
-      25.times do |i|
-        p = Product.create(
-          user_id: User.all.sample.id,
-          name: Faker::Commerce.product_name, 
-          description: Faker::Lorem.paragraph(sentence_count: 3
-          image_url: Faker::LoremPixel.image(size: "300x300", is_gray: false, category: 'abstract'),
-          price: Faker::Commerce.price(as_string: true),
-          quantity: Faker::Number.between(from: 1, to: 1000),
-          barcode: Faker::Barcode.ean,
-          vendor_id: Faker::Number.between(from: 1, to: 5)
+      10.times do
+        product = Product.create(
+          name: Faker::Commerce.product_name,
+          description: Faker::Lorem.paragraph(sentence_count: 3),
+          image: Faker::Avatar.image(slug: "my-own-slug", size: "300x300", format: "png"),
+          price: Faker::Commerce.price(range: 0..100.0, as_string: false),
+          quantity: Faker::Number.between(from: 1, to: 100),
+          barcode: Faker::Barcode.ean
         )
+      
+        # Assign a random vendor to the product
+        product.update(vendor_id: Vendor.pluck(:id).sample)
+      
+        # Assuming the owner is the currently logged in user or a default user
+        product.update(owner: User.first)
       end
       puts "done"
     end
@@ -55,9 +59,8 @@ unless Rails.env.production?
     task add_vendors: :environment do
       puts "adding vendors"
       Product.all.each do |p|
-        rand(5).times do |i|
-          v = Vendor.create(
-            user_id: User.all.sample.id,
+        5.times do
+          Vendor.create(
             name: Faker::Company.name,
             contact_info: Faker::Company.unique.catch_phrase
           )
