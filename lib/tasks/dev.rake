@@ -23,7 +23,7 @@ unless Rails.env.production?
 
     task add_users: :environment do
       puts "adding users..."
-      names = ["alice", "bob", "carol", "Joanna", "shafaq", "They", "we"]
+      names = ["alice", "bob", "carol"]
 
       names.each do |name|
         u = User.create(
@@ -69,7 +69,7 @@ unless Rails.env.production?
         5.times do
           Vendor.create(
             name: Faker::Company.name,
-            contact_info: Faker::Company.unique.catch_phrase
+            contact_info: Faker::Company.unique.catch_phrase,
           )
         end
       end
