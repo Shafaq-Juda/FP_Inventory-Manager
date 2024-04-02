@@ -1,4 +1,4 @@
-class InventoryController < ApplicationController
+class SalesController < ApplicationController
 
   def index
     render{ :index }

@@ -8,6 +8,7 @@ class VendorsController < ApplicationController
 
   # GET /vendors/1 or /vendors/1.json
   def show
+    render { :vendors/:path }
   end
 
   # GET /vendors/new

@@ -1,3 +1,4 @@
+
 unless Rails.env.production?
   namespace :dev do
     desc "Drops, creates, migrates, and adds sample data to database"
@@ -17,6 +18,12 @@ unless Rails.env.production?
       "dev:add_vendors"
     ] do
       puts "done adding sample data"
+    end
+
+    if Rails.env.development?
+      User.destroy_all
+      Product.destroy_all
+      Vendor.destroy_all
     end
 
     task add_users: :environment do

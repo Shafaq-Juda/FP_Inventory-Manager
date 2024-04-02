@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   end
 
   # get  "sales#index"
-
+  resources :sales
+  resources :inventory
 end

@@ -51,7 +51,14 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
     <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+            <img src="#" alt="inventus-logo" width=100/>
+        </a>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="inventory#index", as: "authenticated_root">Your Inventory</a>
       </li>
@@ -59,7 +66,7 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="products#index">Products</a></li>
-          <li><a class="dropdown-item" href="sales#index">Sales</a></li>
+          <li><a class="dropdown-item" href="/sales">Sales</a></li>
           <li><a class="dropdown-item" href="vendors#index">Vendors</a></li>
         </ul>
           </li>
@@ -72,7 +79,7 @@
           </a>
         </li>
       </ul>
-
+      <% end %>
  
       <%= render "shared/flashes" %>
      
