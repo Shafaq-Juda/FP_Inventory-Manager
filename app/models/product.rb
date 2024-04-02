@@ -7,7 +7,7 @@
 #  description :text
 #  image       :string
 #  name        :string
-#  price       :integer
+#  price       :integer          default(0)
 #  quantity    :integer          default(0)
 #  vendor_name :string
 #  created_at  :datetime         not null

@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_02_171131) do
     t.string "name"
     t.text "description"
     t.string "image"
-    t.integer "price"
+    t.integer "price", default: 0
     t.integer "vendor_id"
     t.integer "quantity", default: 0
     t.string "barcode"
