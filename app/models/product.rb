@@ -9,6 +9,7 @@
 #  name        :string
 #  price       :integer
 #  quantity    :integer          default(0)
+#  vendor_name :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  owner_id    :bigint           not null
@@ -28,8 +29,11 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  # validates :vendor_name, presence: true
-  validates :quantity, presence: true
-  validates :price, presence: true
+  validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :barcode, presence: true
+  validates :owner, presence: true  # Ensure that the owner is present
+
+  # Assuming you have a custom validation for vendor_name presence
+  validates :vendor_name, presence: true, if: -> { vendor_id.blank? }
 end

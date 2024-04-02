@@ -20,11 +20,6 @@ unless Rails.env.production?
       puts "done adding sample data"
     end
 
-    if Rails.env.development?
-      User.destroy_all
-      Product.destroy_all
-      Vendor.destroy_all
-    end
 
     task add_users: :environment do
       puts "adding users..."
