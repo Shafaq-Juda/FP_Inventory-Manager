@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
 
 <h1>Vendors</h1>
 
+<%= link_to "New vendor", new_vendor_path %>
+
 <div id="vendors">
   <% @vendors.each do |vendor| %>
-    <%= render vendor %>
-    <p>
-      <%= link_to "Show this vendor", vendor %>
-    </p>
+    
+     <table>
+      <tr>
+        <th>Name</th>
+  
+        <th>Details</th>
+      </tr>
+      <% @vendors.each do |vendor| %>
+        <tr>
+          <td> <%= vendor.name %></td>
+         
+          <td> <%= link_to "Show this vendor", vendor %></td>
+          </tr>
+ <% end %>
+      </table>
+
   <% end %>
 </div>
-
-<%= link_to "New vendor", new_vendor_path %>
