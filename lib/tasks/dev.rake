@@ -23,7 +23,7 @@ unless Rails.env.production?
 
     task add_users: :environment do
       puts "adding users..."
-      names = ["alice", "bob", "carol"]
+      names = ["alice", "bob", "carol", "Joanna", "shafaq", "They", "we"]
 
       names.each do |name|
         u = User.create(
@@ -36,8 +36,8 @@ unless Rails.env.production?
 
       puts "done"
     end
-
     task add_products: :environment do
+      users = User.all
       puts "adding products"
       10.times do
         product = Product.create(
@@ -46,18 +46,22 @@ unless Rails.env.production?
           image: Faker::Avatar.image(slug: "my-own-slug", size: "300x300", format: "png"),
           price: Faker::Commerce.price(range: 0..100.0, as_string: false),
           quantity: Faker::Number.between(from: 1, to: 100),
-          barcode: Faker::Barcode.ean
+          barcode: Faker::Barcode.ean,
+          owner_id: users.sample.id,
+          vendor_name: Faker::Company.name
         )
       
         # Assign a random vendor to the product
         product.update(vendor_id: Vendor.pluck(:id).sample)
         
         # Assuming the owner is the currently logged in user or a default user
-        product.update(owner: User.first)
+        product.update(owner: users.sample)
+
       end
       puts "Added #{Product.count} products to the database!"
-  
+    
     end
+    
 
     task add_vendors: :environment do
       puts "adding vendors"

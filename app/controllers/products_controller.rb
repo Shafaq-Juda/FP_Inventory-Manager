@@ -3,7 +3,9 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    # @products = current_user.products
+    @products = Product.where(owner_id: current_user.id).order(created_at: :desc)
+
   end
 
   # GET /products/1 or /products/1.json
