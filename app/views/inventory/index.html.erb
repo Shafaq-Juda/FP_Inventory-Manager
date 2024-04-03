@@ -17,12 +17,15 @@
         </thead>
 
         <tbody>
+         <% @products.each do |product| %>
           <tr>
-            <td>Data 1</td>
-            <td>Data 2</td>
+            <td><%= product.name %></td>
+            <td><%= product.quantity %></td>
             <td>Data 3</td>
-            <td>Data 4</td>
+            <td> <td> <%= link_to "Show this product", product %> </td></td>
+           
           </tr>
+           <% end %>
           <!-- Add more <tr> elements for additional rows -->
         </tbody>
     </table>

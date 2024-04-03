@@ -35,5 +35,5 @@ class Product < ApplicationRecord
   validates :owner, presence: true  # Ensure that the owner is present
 
   # Assuming you have a custom validation for vendor_name presence
-  validates :vendor_name, presence: true, if: -> { vendor_id.blank? }
+   validates :vendor_name, presence: true, if: -> { vendor_id.blank? }
 end
