@@ -5,7 +5,6 @@
 #  id          :bigint           not null, primary key
 #  barcode     :string
 #  description :text
-#  image       :string
 #  name        :string
 #  price       :integer          default(0)
 #  quantity    :integer          default(0)
