@@ -8,7 +8,6 @@
 #  name        :string
 #  price       :integer          default(0)
 #  quantity    :integer          default(0)
-#  sold_out    :boolean
 #  vendor_name :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
