@@ -4,6 +4,8 @@ class VendorsController < ApplicationController
   # GET /vendors or /vendors.json
   def index
     @vendors = Vendor.all
+    @products = Product.all
+
   end
 
   # GET /vendors/1 or /vendors/1.json

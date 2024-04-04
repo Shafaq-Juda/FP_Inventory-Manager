@@ -21,7 +21,9 @@
           <tr>
             <td><%= product.name %></td>
             <td><%= product.quantity %></td>
-            <td>Data 3</td>
+            <td><form action="/inventory#sold" type="submit"><button>
+            Sold?
+            </button></form></td>
             <td> <td> <%= link_to "Show this product", product %> </td></td>
            
           </tr>

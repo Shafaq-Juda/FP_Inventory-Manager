@@ -8,13 +8,12 @@
       <tr>
        <th>ID</th>
         <th>Name</th>
-  
         <th>Details</th>
       </tr>
       <% @vendors.each do |vendor| %>
         <tr>
         <td> <%= vendor.id %></td>
-          <td> <%= vendor.name %></td>
+          <td> <%= @product.vendor_name %></td>
          
           <td> <%= link_to "Show this vendor", vendor %></td>
           </tr>

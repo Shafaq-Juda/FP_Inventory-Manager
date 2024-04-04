@@ -9,6 +9,7 @@
 #  name        :string
 #  price       :integer          default(0)
 #  quantity    :integer          default(0)
+#  sold_out    :boolean
 #  vendor_name :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -25,7 +26,7 @@
 #
 class Product < ApplicationRecord
   belongs_to :owner, class_name: "User"
-  belongs_to :vendor, class_name: "Vendor"
+  belongs_to :vendor, class_name: "Vendor", optional: true
 
   validates :name, presence: true
   validates :description, presence: true
@@ -34,6 +35,16 @@ class Product < ApplicationRecord
   validates :barcode, presence: true
   validates :owner, presence: true  # Ensure that the owner is present
 
+  def vendor_name=(name)
+    # Find the vendor by name
+    self.vendor = Vendor.find_by(name: name)
+    
+    # If vendor not found, create a new one
+    self.vendor ||= Vendor.create(name: name)
+  end
+
+
+
   # Assuming you have a custom validation for vendor_name presence
-   validates :vendor_name, presence: true, if: -> { vendor_id.blank? }
+  # validates :vendor_name, presence: true, if: -> { vendor_id.blank? }
 end

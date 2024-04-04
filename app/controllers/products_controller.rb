@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def index
     # @products = current_user.products
     @products = Product.where(owner_id: current_user.id).order(created_at: :desc)
+    @vendors = Vendor.all
 
   end
 
