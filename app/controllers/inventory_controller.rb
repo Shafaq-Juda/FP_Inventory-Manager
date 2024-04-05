@@ -10,7 +10,7 @@ class InventoryController < ApplicationController
     # render {:sold}
     @products = Product.where(owner_id: current_user.id).order(created_at: :desc)
     
-    product.sold_out == false
+    product.sold == false
     redirect_to inventory_sold_path
   end
 end
