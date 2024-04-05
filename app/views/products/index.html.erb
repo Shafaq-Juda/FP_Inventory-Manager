@@ -16,7 +16,7 @@
       <% @products.each do |product| %>
         <tr>
           <td> <%= product.name %></td>
-          <td> <%= product.image %></td>
+          <td> <%= image_tag product.image.first if product.image.attached? %></td>
           
           
           <td> <%= link_to "Show this product", product %> </td>
