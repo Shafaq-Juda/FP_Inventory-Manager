@@ -1,25 +1,22 @@
-<h1>Products</h1>
+<div class="text-center", style= "margin-top:20px;">
+  <h1>Products</h1>
+  <%= link_to "Add product", new_product_path, class: "btn blue-button rounded-circle" %>
 
-<%= link_to "New product", new_product_path %>
-
-<div id="products">
- 
-    
-     <table>
-      <tr>
-        <th>Name</th>
-        <th>Image</th>
-        <th>Details</th>
-      </tr>
-      <% @products.each do |product| %>
-        <tr>
-          <td> <%= product.name %></td>
-          <td> <%= image_tag product.image.first if product.image.attached? %></td>
-          
-          
-          <td> <%= link_to "Show this product", product %> </td>
-        </tr>
-      <% end %>
-      </table>
- 
+</div>
+<div class="container mt-5">
+  <div class="row row-cols-3">
+    <% @products.each do |product| %>
+      <div class="col mb-4">
+        <div class="card">
+          <% if product.image.attached? %>
+            <%= image_tag product.image.first, class: "card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <a href="<%= product_path(product) %>" class="btn blue-button">Details</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
