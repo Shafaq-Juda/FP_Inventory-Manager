@@ -1,3 +1,13 @@
-<h1> Welcome </h1>
+  <%= render "shared/banner" %>
+<br>
+<div class="button-container">
+  <div>
+    <a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Login</a>
+  </div>
+  <br>
+  <div>
+    <a class="btn btn-primary btn-lg" href="/users/sign_up" role="button">Signup</a>
+  </div>
 
-<%= link_to "Login/Signup", new_user_session_path %>
+</div>
+

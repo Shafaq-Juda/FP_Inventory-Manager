@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-     <%= render "shared/cdn_assets" %>
+    <%= render "shared/cdn_assets" %>
 
     <style>
       .container {
@@ -42,6 +42,18 @@
       .separator {
         width: 2px; /* Width of the vertical line */
         background-color: #000; /* Color of the vertical line */
+      }
+
+      .button-container {
+        text-align: center;
+      }
+
+      .form-container {
+        text-align: center;
+         display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
       }
     </style>
   </head>
