@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Template</title>
+    <title>Inventus</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,83 +9,50 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <!-- Connect Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-
-    <!-- Connect Bootstrap JavaScript and its dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+     <%= render "shared/cdn_assets" %>
 
     <style>
       .container {
-  display: flex;
-  align-items: stretch; /* Make children stretch to the same height */
-  padding-top: 30px; /* Add padding above the content */
-}
+        display: flex;
+        align-items: stretch; /* Make children stretch to the same height */
+        padding-top: 30px; /* Add padding above the content */
+      }
 
-.left-wrapper,
-.right-wrapper {
-  flex: 1; /* Distribute available space equally */
-}
+      .left-wrapper,
+      .right-wrapper {
+        flex: 1; /* Distribute available space equally */
+      }
 
-.left-wrapper,
-.right-wrapper,
-.left-content,
-.right-content {
-  display: flex;
-  flex-direction: column;
-}
+      .left-wrapper,
+      .right-wrapper,
+      .left-content,
+      .right-content {
+        display: flex;
+        flex-direction: column;
+      }
 
-.left-content{ padding-top: 30px;}
+      .left-content{ padding-top: 30px;}
 
-.right-content{ padding-top: 30px; padding-left: 10px;}
+      .right-content{ padding-top: 30px; padding-left: 10px;}
 
-.heading {
-  text-align: center; /* Center text horizontally */
-}
+      .heading {
+        text-align: center; /* Center text horizontally */
+      }
 
-.separator {
-  width: 2px; /* Width of the vertical line */
-  background-color: #000; /* Color of the vertical line */
-}
+      .separator {
+        width: 2px; /* Width of the vertical line */
+        background-color: #000; /* Color of the vertical line */
+      }
     </style>
   </head>
 
   <body>
     <% if user_signed_in? %>
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a href="/inventory" class="nav-link">
-            <img src="#" alt="inventus-logo" width=100/>
-        </a>
-      </li>
+      <%= render "shared/navbar" %>
+    <% end %>
 
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/inventory", as: "authenticated_root">Your Inventory</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/products">Products</a></li>
-          <li><a class="dropdown-item" href="/sales">Sales</a></li>
-          <li><a class="dropdown-item" href="/vendors">Vendors</a></li>
-        </ul>
-          </li>
+    <%= render "shared/flashes" %>
 
-
-<li class="nav-item dropdown" style="margin-left: auto;">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><%=current_user.username%></a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="<%= destroy_user_session_path %>"  data-turbo-method="delete"
-              data-turbo-confirm="Are you sure?">Sign out</a></li>
-        </ul>
-  </li>
-
-
-      </ul>
-      <% end %>
- 
-      <%= render "shared/flashes" %>
-     
     <%= yield %>
   </body>
 </html>
