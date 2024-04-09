@@ -25,7 +25,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :own_products, class_name: "Product", foreign_key: "owner_id"
+  # has_many :own_products, class_name: "Product", foreign_key: "owner_id"
   validates :username, presence: true, uniqueness: true
 
   private

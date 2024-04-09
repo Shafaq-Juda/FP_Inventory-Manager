@@ -25,7 +25,7 @@
 #
 class Product < ApplicationRecord
   belongs_to :owner, class_name: "User"
-  belongs_to :vendor, class_name: "Vendor", optional: true
+  belongs_to :vendor, class_name: "Vendor", foreign_key: "vendor_id", optional: true
 
   has_many_attached :image
 
@@ -34,7 +34,7 @@ class Product < ApplicationRecord
   validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :barcode, presence: true
-  validates :owner, presence: true  # Ensure that the owner is present
+  # validates :owner, presence: true  # Ensure that the owner is present
 
   def vendor_name=(name)
     # Find the vendor by name

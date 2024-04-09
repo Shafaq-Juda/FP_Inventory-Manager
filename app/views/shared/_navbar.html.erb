@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs">
         <li class="nav-item">
           <a href="/inventory" class="nav-link">
-            <img src="#" alt="inventus-logo" width=100/>
+            <%= image_tag "Logo.png", alt: "inventus-logo", width: 35 %>
           </a>
         </li>
 
@@ -9,7 +9,7 @@
           <a class="nav-link active" aria-current="page" href="/inventory", as: "authenticated_root">Your Inventory</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Select Options</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/products">Products</a></li>
             <li><a class="dropdown-item" href="/sales">Sales</a></li>

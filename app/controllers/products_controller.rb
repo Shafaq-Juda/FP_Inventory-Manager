@@ -31,10 +31,10 @@ class ProductsController < ApplicationController
     if params[:product][:vendor_name].present?
       # Find the vendor by name
       @vendor = Vendor.find_by(name: params[:product][:vendor_name])
-      
+      @product.vendor = @vendor
+    else
       # If vendor not found, create a new one
       @vendor ||= Vendor.create(name: params[:product][:vendor_name])
-      
       # Assign the vendor to the product
       @product.vendor = @vendor
     end
