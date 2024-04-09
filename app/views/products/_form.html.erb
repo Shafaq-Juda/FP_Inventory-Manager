@@ -32,10 +32,8 @@
   </div>
 
   <div>
-    <%= form.label :vendor_name, style: "display: block" %>
-    <%= form.text_field :vendor_name %>
-  </div>
-
+    <%= form.collection_select :vendor_name, Vendor.all, :name, :name, { prompt: "Select a vendor" } %>
+    
   <div>
     <%= form.label :quantity, style: "display: block" %>
     <%= form.number_field :quantity, min: 0 %>

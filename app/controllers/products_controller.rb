@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     # @products = current_user.products
-    @products = Product.where(owner_id: current_user.id).order(created_at: :desc)
+    @products = Product.all.order(created_at: :desc)
     @vendors = Vendor.all
 
   end
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
-    @product.owner = current_user # Assign current user as the owner
+    # @product.owner = current_user # Assign current user as the owner
     
     # Find or create vendor based on the provided vendor name
     if params[:product][:vendor_name].present?

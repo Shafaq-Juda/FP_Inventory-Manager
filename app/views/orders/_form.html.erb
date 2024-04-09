@@ -19,7 +19,15 @@
     const productIdInput = document.querySelector('input[name="order[product_id]"]');
     
     productDropdown.addEventListener('change', function() {
-      productIdInput.value = this.value;
+      const selectedProductId = this.value;
+      fetch(`/products/${selectedProductId}.json`)
+        .then(response => response.json())
+        .then(data => {
+          productIdInput.value = selectedProductId;
+          // Assuming your Product model has an image_url attribute
+          document.getElementById('product_image_url').value = data.image_url;
+        })
+        .catch(error => console.error('Error:', error));
     });
   });
 </script>

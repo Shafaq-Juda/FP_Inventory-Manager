@@ -1,7 +1,18 @@
 <div id="<%= dom_id order %>">
+
+ <p>
+    <strong>Product Image:</strong>
+   <%= image_tag order.product.image.first%>
+  </p>
+
   <p>
-    <strong>Product:</strong>
+    <strong>Product ID:</strong>
     <%= order.product_id %>
+  </p>
+
+  <p>
+    <strong>Product Name:</strong>
+    <%= order.product.name %>
   </p>
 
   <p>
@@ -9,6 +20,9 @@
     <%= order.quantity_sold %>
   </p>
 
+  <p>
+    <strong>Order Date:</strong>
+    <%= order.created_at.strftime("%B %e, %Y")  %>
+  </p>
+
 </div>
-
-

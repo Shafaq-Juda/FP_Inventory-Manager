@@ -12,19 +12,10 @@
 #  vendor_name  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  owner_id     :bigint           not null
 #  vendor_id    :integer
 #
-# Indexes
-#
-#  index_products_on_owner_id  (owner_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (owner_id => users.id)
-#
 class Product < ApplicationRecord
-  belongs_to :owner, class_name: "User"
+  # belongs_to :owner, class_name: "User"
   belongs_to :vendor, class_name: "Vendor", foreign_key: "vendor_id", optional: true
 
   has_many_attached :image
