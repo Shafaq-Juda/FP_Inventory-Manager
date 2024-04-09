@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_09_033410) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_09_152508) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_09_033410) do
     t.integer "quantity_sold"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -60,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_09_033410) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "vendor_name"
-    t.boolean "sold"
+    t.integer "orders_count"
     t.index ["owner_id"], name: "index_products_on_owner_id"
   end
 

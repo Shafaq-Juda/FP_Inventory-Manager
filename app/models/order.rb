@@ -6,8 +6,11 @@
 #  quantity_sold :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  product_id    :integer
 #
 class Order < ApplicationRecord
 
   belongs_to :product, required: true, class_name: "Product", foreign_key: "product_id", counter_cache: true
 end
+
+

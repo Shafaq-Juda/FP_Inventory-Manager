@@ -2,18 +2,18 @@
 #
 # Table name: products
 #
-#  id          :bigint           not null, primary key
-#  barcode     :string
-#  description :text
-#  name        :string
-#  price       :integer          default(0)
-#  quantity    :integer          default(0)
-#  sold        :boolean
-#  vendor_name :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  owner_id    :bigint           not null
-#  vendor_id   :integer
+#  id           :bigint           not null, primary key
+#  barcode      :string
+#  description  :text
+#  name         :string
+#  orders_count :integer
+#  price        :integer          default(0)
+#  quantity     :integer          default(0)
+#  vendor_name  :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  owner_id     :bigint           not null
+#  vendor_id    :integer
 #
 # Indexes
 #
@@ -28,6 +28,7 @@ class Product < ApplicationRecord
   belongs_to :vendor, class_name: "Vendor", foreign_key: "vendor_id", optional: true
 
   has_many_attached :image
+  has_many  :orders, class_name: "Order", foreign_key: "product_id", dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true

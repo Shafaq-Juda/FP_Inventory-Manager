@@ -1,14 +1,25 @@
-
 <%= simple_form_for(@order) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :product_id %>
-    <%= f.input :quantity_sold %>
+   <%= f.input :product_id, as: :hidden %>
+    <%= f.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
+    <%= f.input :quantity_sold, input_html: { min: 1 } %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const productDropdown = document.getElementById('product-dropdown');
+    const productIdInput = document.querySelector('input[name="order[product_id]"]');
+    
+    productDropdown.addEventListener('change', function() {
+      productIdInput.value = this.value;
+    });
+  });
+</script>
