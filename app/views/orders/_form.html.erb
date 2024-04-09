@@ -1,0 +1,33 @@
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+   <%= f.input :product_id, as: :hidden %>
+    <%= f.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
+    <%= f.input :quantity_sold, input_html: { min: 1 } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const productDropdown = document.getElementById('product-dropdown');
+    const productIdInput = document.querySelector('input[name="order[product_id]"]');
+    
+    productDropdown.addEventListener('change', function() {
+      const selectedProductId = this.value;
+      fetch(`/products/${selectedProductId}.json`)
+        .then(response => response.json())
+        .then(data => {
+          productIdInput.value = selectedProductId;
+          // Assuming your Product model has an image_url attribute
+          document.getElementById('product_image_url').value = data.image_url;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  });
+</script>

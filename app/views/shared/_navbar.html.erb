@@ -1,0 +1,29 @@
+<ul class="nav nav-tabs bg-">
+        <li class="nav-item">
+          <a href="/inventory" class="nav-link">
+            <%= image_tag "Logo.png", alt: "inventus-logo", width: 35 %>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/inventory", as: "authenticated_root">Your Inventory</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Select Options</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/products">Products</a></li>
+            <li><a class="dropdown-item" href="/vendors">Vendors</a></li>
+            <li><a class="dropdown-item" href="/orders">Orders</a></li>
+            <li><a class="dropdown-item" href="/sales">Sales</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown" style="margin-left: auto;">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><%=current_user.username%></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<%= destroy_user_session_path %>"  data-turbo-method="delete"
+              data-turbo-confirm="Are you sure?">Sign out</a></li>
+          </ul>
+        </li>
+
+      </ul>

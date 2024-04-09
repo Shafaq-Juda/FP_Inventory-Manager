@@ -1,16 +1,81 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Template</title>
+    <title>Inventus</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <%= render "shared/cdn_assets" %>
+
+    <style>
+      .container {
+        display: flex;
+        align-items: stretch; /* Make children stretch to the same height */
+        padding-top: 30px; /* Add padding above the content */
+      }
+
+      .left-wrapper,
+      .right-wrapper {
+        flex: 1; /* Distribute available space equally */
+      }
+
+      .left-wrapper,
+      .right-wrapper,
+      .left-content,
+      .right-content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .left-content{ padding-top: 30px;}
+
+      .right-content{ padding-top: 30px; padding-left: 10px;}
+
+      .heading {
+        text-align: center; /* Center text horizontally */
+      }
+
+      .separator {
+        width: 2px; /* Width of the vertical line */
+        background-color: #000; /* Color of the vertical line */
+      }
+
+      .button-container {
+        text-align: center;
+      }
+
+      .form-container {
+        text-align: center;
+         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+      }
+
+      .grey-button {
+        background-color: #BFBFBF; /* Replace #ff0000 with your desired color code */
+        color: #ffffff; /* Optionally, you can specify text color */
+      }
+
+       .blue-button {
+        background-color:  #005493; /* Replace #ff0000 with your desired color code */
+        color: #ffffff; /* Optionally, you can specify text color */
+      }
+    </style>
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= render "shared/navbar" %>
+    <% end %>
+
+    <%= render "shared/flashes" %>
+
     <%= yield %>
   </body>
 </html>

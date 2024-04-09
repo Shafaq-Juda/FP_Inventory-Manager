@@ -1,0 +1,22 @@
+
+<h1>Vendors</h1>
+
+<%= link_to "New vendor", new_vendor_path %>
+
+<div id="vendors">
+     <table>
+      <tr>
+       <th>ID</th>
+        <th>Name</th>
+        <th>Details</th>
+      </tr>
+      <% @vendors.each do |vendor| %>
+        <tr>
+        <td> <%= vendor.id %></td>
+          <td> <%=vendor.name %></td>
+         
+          <td> <%= link_to "Show this vendor", vendor %></td>
+          </tr>
+ <% end %>
+      </table>
+</div>
