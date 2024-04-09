@@ -15,3 +15,4 @@ This Application is designed to make you track your Inventory Status. Also you c
 This Application is created in Ruby on Rails, also used ActiveRecords for database and Bootstrap framework.
 
 
+
