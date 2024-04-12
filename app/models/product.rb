@@ -9,7 +9,6 @@
 #  orders_count :integer
 #  price        :integer          default(0)
 #  quantity     :integer          default(0)
-#  vendor_name  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  vendor_id    :integer
@@ -28,13 +27,13 @@ class Product < ApplicationRecord
   validates :barcode, presence: true
   # validates :owner, presence: true  # Ensure that the owner is present
 
-  def vendor_name=(name)
-    # Find the vendor by name
-    self.vendor = Vendor.find_by(name: name)
+  # def vendor_name=(name)
+  #   # Find the vendor by name
+  #   self.vendor = Vendor.find_by(name: name)
     
-    # If vendor not found, create a new one
-    self.vendor ||= Vendor.create(name: name)
-  end
+  #   # If vendor not found, create a new one
+  #   self.vendor ||= Vendor.create(name: name)
+  # end
 
 
 

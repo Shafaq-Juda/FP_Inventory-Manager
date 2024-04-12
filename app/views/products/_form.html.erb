@@ -32,7 +32,7 @@
   </div>
 
   <div>
-    <%= form.collection_select :vendor_name, Vendor.all, :name, :name, { prompt: "Select a vendor" } %>
+    <%= form.collection_select :vendor_id, Vendor.all, :id, :name, { prompt: "Select a vendor" } %>
     
   <div>
     <%= form.label :quantity, style: "display: block" %>

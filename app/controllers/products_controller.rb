@@ -25,19 +25,6 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
-    # @product.owner = current_user # Assign current user as the owner
-    
-    # Find or create vendor based on the provided vendor name
-    if params[:product][:vendor_name].present?
-      # Find the vendor by name
-      @vendor = Vendor.find_by(name: params[:product][:vendor_name])
-      @product.vendor = @vendor
-    else
-      # If vendor not found, create a new one
-      @vendor ||= Vendor.create(name: params[:product][:vendor_name])
-      # Assign the vendor to the product
-      @product.vendor = @vendor
-    end
 
     respond_to do |format|
       if @product.save
@@ -82,6 +69,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :image, :price, :quantity, :barcode, :vendor_name)
+      params.require(:product).permit(:name, :description, :image, :price, :quantity, :barcode, :vendor_id)
     end
 end

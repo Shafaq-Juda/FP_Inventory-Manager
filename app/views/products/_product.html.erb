@@ -27,7 +27,8 @@
 
   <p>
     <strong>Vendor ID:</strong>
-   <a href="#"> <%= product.vendor_id %> </a>
+    <%= link_to product.vendor.id, vendor_path(product.vendor) %>
+   <%# <a href="#">  product.vendor.id </a> %>
   </p>
 
   <p>
