@@ -5,6 +5,7 @@ ruby "3.2.1"
 
 gem 'aws-sdk-s3', require: false
 gem "devise"
+gem 'simple_form'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
