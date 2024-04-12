@@ -1,4 +1,4 @@
-<%= simple_form_for(@order) do |f| %>
+<%= simple_form_for(@sale) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -16,7 +16,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const productDropdown = document.getElementById('product-dropdown');
-    const productIdInput = document.querySelector('input[name="order[product_id]"]');
+    const productIdInput = document.querySelector('input[name="sale[product_id]"]');
     
     productDropdown.addEventListener('change', function() {
       const selectedProductId = this.value;

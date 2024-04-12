@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: orders
+# Table name: sales
 #
 #  id            :bigint           not null, primary key
 #  quantity_sold :integer
@@ -8,9 +8,7 @@
 #  updated_at    :datetime         not null
 #  product_id    :integer
 #
-class Order < ApplicationRecord
+class Sale < ApplicationRecord
 
   belongs_to :product, required: true, class_name: "Product", foreign_key: "product_id", counter_cache: true
 end
-
-

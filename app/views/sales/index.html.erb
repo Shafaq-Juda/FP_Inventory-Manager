@@ -1,1 +1,25 @@
-Hi I am your sales!!!
+<div class="text-center", style= "margin-top:20px;">
+ <h1>Sales</h1>
+  <%= link_to "New sale", new_sale_path, class: "btn blue-button rounded-circle" %>
+</div>
+
+<div class="container mt-5">
+  <div class="row row-cols-3">
+    <% @sales.each do |sale| %>
+      <div class="col mb-4">
+        <div class="card">
+         <% if sale.product.image.attached? %>
+          <%= image_tag sale.product.image.first, class: "card-img-top" %> 
+          <% end %>
+          <div class="card-body">
+            
+           <h5 class="card-title"> <%= sale.product.name %></h5>
+           <p class="card-text"><strong>ID: </strong><%= sale.product_id %></p>
+            <p class="card-text"><strong>Quantity Sold: </strong><%= sale.quantity_sold%></p>
+            <a href="<%= sale_path(sale) %>" class="btn blue-button">Details</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

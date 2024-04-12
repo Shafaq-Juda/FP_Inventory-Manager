@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_08_215155) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_12_200004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -43,13 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_08_215155) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "quantity_sold"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -57,7 +50,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_08_215155) do
     t.integer "vendor_id"
     t.integer "quantity", default: 0
     t.string "barcode"
-    t.integer "orders_count"
+    t.integer "sales_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "quantity_sold"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

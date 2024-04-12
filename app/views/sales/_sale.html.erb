@@ -1,0 +1,28 @@
+<div id="<%= dom_id sale %>">
+
+ <p>
+    <strong>Product Image:</strong>
+   <%= image_tag sale.product.image.first%>
+  </p>
+
+  <p>
+    <strong>Product ID:</strong>
+    <%= sale.product_id %>
+  </p>
+
+  <p>
+    <strong>Product Name:</strong>
+    <%= sale.product.name %>
+  </p>
+
+  <p>
+    <strong>Quantity sold:</strong>
+    <%= sale.quantity_sold %>
+  </p>
+
+  <p>
+    <strong>Sale Date:</strong>
+    <%= sale.created_at.strftime("%B %e, %Y")  %>
+  </p>
+
+</div>
