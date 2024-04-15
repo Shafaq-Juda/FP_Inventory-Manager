@@ -1,43 +1,39 @@
-
 <div class="container">
 
-  <div class="left-wrapper">
+  <div class="left-wrapper bg-success-subtle">
     <h2 class="heading"> In Stock</h2>
     <div class="left-content">
       <!-- Left content goes here -->
-      
-    <table>
+
+      <table>
         <thead>
           <tr>
             <th>Products</th>
             <th>Quantity</th>
-            <th>Sold?</th>
             <th>Details</th>
           </tr>
         </thead>
 
         <tbody>
-         <% @products.each do |product| %>
-          <tr>
-            <td><%= product.name %></td>
-            <td><%= product.quantity %></td>
-            <td><form action="/inventory#sold" type="submit"><button>
-            Sold?
-            </button></form></td>
-            <td> <td> <%= link_to "Show this product", product %> </td></td>
-           
-          </tr>
-           <% end %>
+          <% @products.each do |product| %>
+            <% if product.quantity > 3 %>
+              <tr>
+                <td><%= product.name %></td>
+                <td><%= product.quantity %></td>
+                <td> <%= link_to "Show this product", product %> </td>
+              </tr>
+            <% end %>
+          <% end %>
           <!-- Add more <tr> elements for additional rows -->
         </tbody>
-    </table>
-     
+      </table>
+
     </div>
   </div>
 
   <div class="separator"></div>
 
-  <div class="right-wrapper">
+  <div class="right-wrapper bg-danger-subtle">
     <h2 class="heading">Running Out</h2>
     <div class="right-content">
       <!-- Right content goes here -->
@@ -51,29 +47,19 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>Data 1</td>
-            <td>Data 2</td>
-            <td>Data 4</td>
-          </tr>
+          <% @products.each do |product| %>
+            <% if product.quantity <= 3 %>
+              <tr>
+                <td><%= product.name %></td>
+                <td><%= product.quantity %></td>
+                <td> <%= link_to "Show this product", product %> </td>
+              </tr>
+            <% end %>
+          <% end %>
           <!-- Add more <tr> elements for additional rows -->
         </tbody>
-    </table>
+      </table>
 
-
-    <div class="container text-center">
-  <div class="row align-items-start">
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-      One of three columns
-    </div>
-  </div>
-</div>
     </div>
   </div>
 
