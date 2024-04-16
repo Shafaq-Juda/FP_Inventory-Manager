@@ -22,13 +22,12 @@
 
   <p>
     <strong>Price:</strong>
-    <%= product.price %>
+    $<%= product.price %>
   </p>
 
   <p>
     <strong>Vendor ID:</strong>
     <%= link_to product.vendor.id, vendor_path(product.vendor) %>
-   <%# <a href="#">  product.vendor.id </a> %>
   </p>
 
   <p>

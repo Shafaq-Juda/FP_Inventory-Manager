@@ -7,7 +7,7 @@
 
   <p>
     <strong>Product ID:</strong>
-    <%= sale.product_id %>
+    <%= link_to sale.product_id, product_path(sale.product) %>
   </p>
 
   <p>

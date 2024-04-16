@@ -61,6 +61,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def quantity
+    product = Product.find(params[:id])
+
+    respond_to do |format|
+      format.json { 
+        render json: product.quantity 
+      }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -71,4 +81,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :description, :image, :price, :quantity, :barcode, :vendor_id)
     end
+
 end
