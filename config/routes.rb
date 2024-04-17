@@ -23,12 +23,11 @@ Rails.application.routes.draw do
   # get  "sales#index"
   resources :sales
   resources :inventory
-  # resources :sold
-  # post '/inventory/sold', to: 'inventory#sold'
 
-  # resources :inventory do
-  #   collection do
-  #     get 'sold', to: 'inventory#sold'
-  #   end
+  resources :products do
+    get 'quantity', on: :member
+  end
+
+  post "/products/quantity/:id", to: 'products#quantity'
   
 end

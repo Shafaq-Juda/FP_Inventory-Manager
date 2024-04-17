@@ -13,6 +13,8 @@ class SalesController < ApplicationController
   # GET /sales/new
   def new
     @sale = Sale.new
+    #@product = Product.product_id
+   # @max_quantity = @product.quantity
   end
 
   # GET /sales/1/edit
@@ -22,18 +24,22 @@ class SalesController < ApplicationController
   # POST /sales or /sales.json
   def create
     @sale = Sale.new(sale_params)
-
+    @product = Product.find(@sale.product_id)
+    quantity = @product.quantity
+    
+  
     respond_to do |format|
       if @sale.save
         format.html { redirect_to sale_url(@sale), notice: "Sale was successfully created." }
         format.json { render :show, status: :created, location: @sale }
       else
+        @product = Product.find_by_id(params[:sale][:product_id])
+        @max_quantity = @product.quantity if @product
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @sale.errors, status: :unprocessable_entity }
       end
     end
   end
-
   # PATCH/PUT /sales/1 or /sales/1.json
   def update
     respond_to do |format|
