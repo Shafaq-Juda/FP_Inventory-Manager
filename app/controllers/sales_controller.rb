@@ -13,8 +13,6 @@ class SalesController < ApplicationController
   # GET /sales/new
   def new
     @sale = Sale.new
-    #@product = Product.product_id
-   # @max_quantity = @product.quantity
   end
 
   # GET /sales/1/edit
@@ -67,12 +65,10 @@ class SalesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_sale
       @sale = Sale.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def sale_params
       params.require(:sale).permit(:product_id, :quantity_sold)
     end

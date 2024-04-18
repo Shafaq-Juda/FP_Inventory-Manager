@@ -1,15 +1,54 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.container {
+  display: flex;
+  align-items: stretch; /* Make children stretch to the same height */
+  padding-top: 30px; /* Add padding above the content */
+}
+
+.left-wrapper,
+.right-wrapper {
+flex: 1; /* Distribute available space equally */
+}
+
+.left-wrapper,
+.right-wrapper,
+.left-content,
+.right-content {
+display: flex;
+flex-direction: column;
+}
+
+.left-content{ padding-top: 30px;}
+
+.right-content{ padding-top: 30px; padding-left: 10px;}
+
+.heading {
+text-align: center; /* Center text horizontally */
+}
+
+.separator {
+width: 2px; /* Width of the vertical line */
+background-color: #000; /* Color of the vertical line */
+}
+
+.button-container {
+text-align: center;
+}
+
+.form-container {
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 100px;
+}
+
+.grey-button {
+background-color: #BFBFBF; /* Replace #ff0000 with your desired color code */
+color: #ffffff; /* Optionally, you can specify text color */
+}
+
+.blue-button {
+background-color:  #005493; /* Replace #ff0000 with your desired color code */
+color: #ffffff; /* Optionally, you can specify text color */
+}

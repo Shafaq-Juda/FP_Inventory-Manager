@@ -3,10 +3,8 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    # @products = current_user.products
     @products = Product.all.order(created_at: :desc)
     @vendors = Vendor.all
-
   end
 
   # GET /products/1 or /products/1.json
@@ -37,8 +35,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  
-  # PATCH/PUT /products/1 or /products/1.json
   def update
     respond_to do |format|
       if @product.update(product_params)
@@ -72,12 +68,10 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:name, :description, :image, :price, :quantity, :barcode, :vendor_id)
     end
