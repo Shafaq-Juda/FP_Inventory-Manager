@@ -27,11 +27,14 @@ class SalesController < ApplicationController
     @product = Product.find(@sale.product_id)
     quantity = @product.quantity
     
-  
     respond_to do |format|
       if @sale.save
+       
         format.html { redirect_to sale_url(@sale), notice: "Sale was successfully created." }
         format.json { render :show, status: :created, location: @sale }
+
+        new_quantity = quantity - @sale.quantity_sold
+        @product.update(quantity: new_quantity)
       else
         @product = Product.find_by_id(params[:sale][:product_id])
         @max_quantity = @product.quantity if @product

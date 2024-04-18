@@ -27,5 +27,7 @@ class Product < ApplicationRecord
   validates :barcode, presence: true
   validates :vendor_id, presence: true
   
-  
+  def update_quantity!(quantity_sold)
+    update!(quantity: quantity - quantity_sold)
+  end
 end
