@@ -1,54 +1,99 @@
 .container {
   display: flex;
-  align-items: stretch; /* Make children stretch to the same height */
-  padding-top: 30px; /* Add padding above the content */
+  align-items: stretch;
+  padding-top: 30px;
 }
 
 .left-wrapper,
 .right-wrapper {
-flex: 1; /* Distribute available space equally */
+  flex: 1;
 }
 
 .left-wrapper,
 .right-wrapper,
 .left-content,
 .right-content {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.left-content{ padding-top: 30px;}
+.left-content {
+  padding-top: 30px;
+}
 
-.right-content{ padding-top: 30px; padding-left: 10px;}
+.right-content {
+  padding-top: 30px;
+  padding-left: 10px;
+}
 
 .heading {
-text-align: center; /* Center text horizontally */
+  text-align: center;
 }
 
 .separator {
-width: 2px; /* Width of the vertical line */
-background-color: #000; /* Color of the vertical line */
+  width: 6px;
+  background-color: #005493;
 }
 
 .button-container {
-text-align: center;
+  text-align: center;
 }
 
 .form-container {
-text-align: center;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-top: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
 }
 
 .grey-button {
-background-color: #BFBFBF; /* Replace #ff0000 with your desired color code */
-color: #ffffff; /* Optionally, you can specify text color */
+  background-color: #BFBFBF;
+  color: #ffffff;
 }
 
 .blue-button {
-background-color:  #005493; /* Replace #ff0000 with your desired color code */
-color: #ffffff; /* Optionally, you can specify text color */
+  background-color: #005493;
+  color: #ffffff;
+}
+
+.bg-blue {
+  background-color: #005493;
+  color: #ffffff;
+}
+
+a:link {
+  color: #fff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #DA8B34;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #DA8B34;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+ul.nav a:hover { color: #fff; background-color: #DA8B34}
+
+a.btn.blue-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #005493;
+  color: #ffffff;
+  border-radius: 5px;
+  text-decoration: none; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a.btn.blue-button:hover {
+  background-color: #DA8B34; /* White background on hover */
+  color: #fff; /* Black text on hover */
 }

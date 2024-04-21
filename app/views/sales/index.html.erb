@@ -1,25 +1,33 @@
-<div class="text-center", style= "margin-top:20px;">
-  <h1>Sales</h1>
-  <%= link_to "New sale", new_sale_path, class: "btn blue-button rounded-circle" %>
-
-  <div class="container mt-5">
-    <div class="row row-cols-6 justify-content-center">
-      <div class="col-md-8">
-        <table class="table table-striped table-hover">
-          <tr>
-            <th>Name</th>
-            <th>Quantity Sold</th>
-            <th>Details</th>
-          </tr>
-          <% @sales.each do |sale| %>
-            <tr>
-              <td><%= sale.product.name %></td>
-              <td><%= sale.quantity_sold %></td>
-              <td><a href="<%= sale_path(sale) %>" class="btn blue-button">Details</a></td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("Sales", class: "d-block w-100", alt: "banner", size: "2062x410") %>
     </div>
   </div>
 </div>
+
+    <div class="text-center", style= "margin-top:20px;">
+      <h1>Sales</h1>
+      <%= link_to "New sale", new_sale_path, class: "btn blue-button rounded-circle" %>
+
+      <div class="container mt-5">
+        <div class="row row-cols-6 justify-content-center">
+          <div class="col-md-8">
+            <table class="table table-striped table-hover">
+              <tr>
+                <th>Name</th>
+                <th>Quantity Sold</th>
+                <th>Details</th>
+              </tr>
+              <% @sales.each do |sale| %>
+                <tr>
+                  <td><%= sale.product.name %></td>
+                  <td><%= sale.quantity_sold %></td>
+                  <td><a href="<%= sale_path(sale) %>" class="btn blue-button">Details</a></td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
