@@ -1,11 +1,15 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("orange", class: "d-block w-100", alt: "banner", size: "2062x410") %>
+    </div>
+  </div>
+</div>
 <div class="text-center", style= "margin-top:20px;">
-  <h1>Products</h1>
-  <%= link_to "Add product", new_product_path, class: "btn blue-button rounded-circle" %>
-  
-  <a href="/products/new"> <i class="bi bi-plus-circle-fill"></i> </a>
+  <a href="/products/new" style="font-size: 24px;"> <i class="bi bi-plus-circle-fill"></i> </a>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-2">
   <div class="row row-cols-3">
     <% @products.each do |product| %>
       <div class="col mb-4">
