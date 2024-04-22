@@ -97,3 +97,11 @@ a.btn.blue-button:hover {
   background-color: #DA8B34; /* White background on hover */
   color: #fff; /* Black text on hover */
 }
+
+.blue {
+  color: #005493;
+}
+
+.orange {
+  background-color: #DA8B34;
+}

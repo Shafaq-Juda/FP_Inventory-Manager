@@ -5,22 +5,26 @@
     </div>
   </div>
 </div>
-<%= link_to "New vendor", new_vendor_path %>
 
-<div id="vendors">
-     <table>
+<div class="text-center", style= "margin-top:20px;">
+  <a href="/vendors/new" style="font-size: 40px;"> <i class="bi bi-plus-circle-fill" style="color: #005493;"></i> </a>
+
+  <div class="container mt-2">
+
+    <table class="table table-striped table-hover">
       <tr>
-       <th>ID</th>
+        <th>ID</th>
         <th>Name</th>
         <th>Details</th>
       </tr>
       <% @vendors.each do |vendor| %>
         <tr>
-        <td> <%= vendor.id %></td>
-          <td> <%=vendor.name %></td>
-         
-          <td> <%= link_to "Show this vendor", vendor %></td>
-          </tr>
- <% end %>
-      </table>
+          <td><%= vendor.id %></td>
+          <td><%=vendor.name %></td>
+          <td><%= link_to "Show this vendor", vendor, class: "btn blue-button" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

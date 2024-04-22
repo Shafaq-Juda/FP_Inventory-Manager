@@ -1,57 +1,57 @@
 <div class= "container">
-<%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: product) do |form| %>
+    <% if product.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+        <ul>
+          <% product.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <div>
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div>
+      <%= form.label :image, style: "display: block" %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div>
+      <%= form.label :price, style: "display: block" %>
+      <%= form.number_field :price, min: 0 %>
+    </div>
+
+    <div>
+      <%= form.collection_select :vendor_id, Vendor.all, :id, :name, { prompt: "Select a vendor" } %>
+
+      <div>
+        <%= form.label :quantity, style: "display: block" %>
+        <%= form.number_field :quantity, min: 0 %>
+      </div>
+
+      <div>
+        <%= form.label :barcode, style: "display: block" %>
+        <%= form.text_field :barcode %>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= link_to "Back to products", products_path %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price, min: 0 %>
-  </div>
-
-  <div>
-    <%= form.collection_select :vendor_id, Vendor.all, :id, :name, { prompt: "Select a vendor" } %>
-    
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity, min: 0 %>
-  </div>
-
-  <div>
-    <%= form.label :barcode, style: "display: block" %>
-    <%= form.text_field :barcode %>
-  </div>
-
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<div>
-  <%= link_to "Back to products", products_path %>
-</div>
-</div>
