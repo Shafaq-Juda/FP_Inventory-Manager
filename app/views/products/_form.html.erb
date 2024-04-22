@@ -1,5 +1,5 @@
 <div class= "container">
-
+<div style="display: inline-block; border: 2px solid black; padding: 8px; background-color: #f0f0f0;">
   <%= form_with(model: product) do |form| %>
     <% if product.errors.any? %>
       <div style="color: red">
@@ -50,8 +50,5 @@
         <%= form.submit %>
       </div>
     <% end %>
-
-    <div>
-      <%= link_to "Back to products", products_path %>
-    </div>
+</div>
   </div>

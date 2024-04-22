@@ -1,27 +1,31 @@
-<%= form_with(model: vendor) do |form| %>
-  <% if vendor.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+<div class="container">
+<div style="display: inline-block; border: 2px solid black; padding: 8px; background-color: #f0f0f0;">
+  <%= form_with(model: vendor) do |form| %>
+    <% if vendor.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
 
-      <ul>
-        <% vendor.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% vendor.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="mt-2">
+      <%= form.label :contact_info, style: "display: block" %>
+      <%= form.text_field :contact_info %>
+    </div>
+
+    <div class="mt-2">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
   </div>
-
-  <div>
-    <%= form.label :contact_info, style: "display: block" %>
-    <%= form.text_field :contact_info %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
