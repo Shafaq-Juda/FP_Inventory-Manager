@@ -1,10 +1,13 @@
-<h1>Editing product</h1>
+<nav aria-label="breadcrumb" class="ms-2">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/inventory">Home</a></li>
+    <li class="breadcrumb-item">   <%= link_to @product.name, product_path%></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Product</li>
+  </ol>
+</nav>
+
+<div class="container text-center">
+  <h1 class="fw-bold" style="color: #DA8B34;">Editing Product</h1>
+</div>
 
 <%= render "form", product: @product %>
-
-<br>
-
-<div>
-  <%= link_to "Show this product", @product %> |
-  <%= link_to "Back to products", products_path %>
-</div>

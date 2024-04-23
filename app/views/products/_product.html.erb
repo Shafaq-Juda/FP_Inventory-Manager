@@ -1,37 +1,29 @@
+<nav aria-label="breadcrumb" class="ms-2">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/inventory">Home</a></li>
+    <li class="breadcrumb-item">   <%= link_to "Products", products_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=@product.name%></li>
+  </ol>
+</nav>
+
 <div id="<%= dom_id product %>">
 
-  <p>
-    <strong>ID:</strong>
-    <%= product.id %>
-  </p>
+  <div class="card mb-3 ms-3" style="max-width: 900px;">
+    <div class="row g-8">
+      <div class="col-md-4">
+        <%= image_tag product.image.first, width: "300px", class: "product-image" if product.image.attached? %>
+      </div>
+      <div class="col-md-5">
+        <div class="card-body">
+          <h5 class="card-title"> <%= product.name %> - <%= product.id %></h5>
+          <p class="card-text"> <%= product.description %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
+          <p class="card-text">Price: $<%= product.price %></p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag product.image.first, width: "300px" if product.image.attached? %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    $<%= product.price %>
-  </p>
-
-  <p>
-    <strong>Vendor ID:</strong>
-    <%= link_to product.vendor.id, vendor_path(product.vendor) %>
-  </p>
-
-  <p>
-    <strong>Barcode:</strong>
-    <%= product.barcode %>
-  </p>
+          <p class="card-text">Barcode: <%= product.barcode %></p>
+          <p class="card-text">Vendor ID:  <%= link_to product.vendor.id, vendor_path(product.vendor) %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
