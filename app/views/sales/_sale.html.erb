@@ -1,28 +1,30 @@
+<nav aria-label="breadcrumb" class="ms-2">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/inventory">Home</a></li>
+    <li class="breadcrumb-item">   <%= link_to "Sales", sales_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=@sale.product.name%></li>
+  </ol>
+</nav>
+
 <div id="<%= dom_id sale %>">
 
- <p>
-    <strong>Product Image:</strong>
-   <%= image_tag sale.product.image.first, width: "300px"%>
-  </p>
+  <div class="card mb-3 ms-3" style="max-width: 900px;">
+    <div class="row g-8">
+      <div class="col-md-4">
+        <%= image_tag sale.product.image.first, width: "300px" %>
+      </div>
+      <div class="col-md-5">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">  <%= sale.product.name %> - <%= link_to sale.product_id, product_path(sale.product) %>
+          </h5>
+          <p class="card-text">Quantity Sold: <%= sale.quantity_sold %></p>
+          <p class="card-text">Sale Date: <%= sale.created_at.strftime("%B %e, %Y")  %></p>
 
-  <p>
-    <strong>Product ID:</strong>
-    <%= link_to sale.product_id, product_path(sale.product) %>
-  </p>
+          <a href="<%= edit_sale_path(@sale) %>" class="btn blue-button">Edit this sale</a>
+          <%= button_to "Destroy this sale", @sale, method: :delete, class: "btn btn-danger mt-2"%>
 
-  <p>
-    <strong>Product Name:</strong>
-    <%= sale.product.name %>
-  </p>
-
-  <p>
-    <strong>Quantity sold:</strong>
-    <%= sale.quantity_sold %>
-  </p>
-
-  <p>
-    <strong>Sale Date:</strong>
-    <%= sale.created_at.strftime("%B %e, %Y")  %>
-  </p>
-
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

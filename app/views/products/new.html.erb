@@ -1,5 +1,13 @@
+<nav aria-label="breadcrumb" class="ms-2">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/inventory">Home</a></li>
+    <li class="breadcrumb-item">   <%= link_to "Products", products_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">New Product</li>
+  </ol>
+</nav>
 
-<div class="container text-center"><h1 class="fw-bold" style="color: #DA8B34;">New Product</h1>
+<div class="container text-center">
+  <h1 class="fw-bold" style="color: #DA8B34;">New Product</h1>
 </div>
 
 <%= render "form", product: @product %>

@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: stretch;
+  justify-content: stretch;
   padding-top: 30px;
 }
 
@@ -64,7 +65,7 @@
 }
 
 a:link {
-  color: #fff;
+  color: #000;
   background-color: transparent;
   text-decoration: none;
 }
@@ -104,4 +105,29 @@ a.btn.blue-button:hover {
 
 .orange {
   background-color: #DA8B34;
+}
+
+
+.product-details {
+  display: flex;
+ /* Align items to the top */
+}
+
+.image-container {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.product-image {
+  display: block; /* Make image block-level */
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+.details-container {
+  flex-grow: 1; /* Expand to fill remaining space */
+}
+
+.center {
+  display: grid;
+  place-items: center;
 }
