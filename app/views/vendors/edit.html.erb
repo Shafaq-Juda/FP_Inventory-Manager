@@ -1,10 +1,13 @@
-<h1>Editing vendor</h1>
+<nav aria-label="breadcrumb" class="ms-2">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/vendors">Vendors</a></li>
+    <li class="breadcrumb-item">   <%= link_to @vendor.name, vendor_path%></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Vendor</li>
+  </ol>
+</nav>
+
+<div class="container text-center">
+  <h1 class="fw-bold" style="color: #DA8B34;">Editing Vendor</h1>
+</div>
 
 <%= render "form", vendor: @vendor %>
-
-<br>
-
-<div>
-  <%= link_to "Show this vendor", @vendor %> |
-  <%= link_to "Back to vendors", vendors_path %>
-</div>
