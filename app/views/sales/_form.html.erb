@@ -1,28 +1,24 @@
 <div class= "container">
-<div style="display: inline-block; border: 2px solid black; padding: 8px; background-color: #f0f0f0;">
-<%= form_for(@sale) do |f| %>
+  <div style="display: inline-block; border: 2px solid black; padding: 8px; background-color: #f0f0f0;">
+    <%= form_for(@sale) do |f| %>
 
-  <div class="form-inputs ms-2">
-    <div class="mt-2">
-      <%= f.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
-    </div>
-    <div class="mt-2">
-      <%= f.label :quantity_sold %>
-      <%= f.number_field :quantity_sold, input_html: { min: 1, max:  @max_quantity } %>
-      <span id="message" visibility="hidden"></span>
-    </div>
+      <div class="form-inputs ms-2">
+        <div class="mt-2">
+          <%= f.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
+        </div>
+        <div class="mt-2">
+          <%= f.label :quantity_sold %>
+          <%= f.number_field :quantity_sold, input_html: { min: 1, max:  @max_quantity } %>
+          <span id="message" visibility="hidden"></span>
+        </div>
+
+        <div class="form-actions ms-2 mt-2">
+          <%= f.button :submit %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions ms-2 mt-2">
-    <%= f.button :submit %>
-  </div>
-
-   <a href="<%= sale_path(@sale)%>" class="btn blue-button mt-2">Go Back</a>
-
-<% end %>
 </div>
-</div>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
