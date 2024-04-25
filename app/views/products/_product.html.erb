@@ -23,7 +23,7 @@
           <p class="card-text">Barcode: <%= product.barcode %></p>
 
           <% if product.vendor.present? %>
-            <p class="card-text">Vendor ID: <%= link_to product.vendor.id, vendor_path(product.vendor) %></p>
+            <p class="card-text">Vendor Name: <%= link_to product.vendor.name, vendor_path(product.vendor) %></p>
           <% else %>
             <p class="card-text">Vendor not available</p>
           <% end %>

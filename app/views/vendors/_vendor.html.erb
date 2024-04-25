@@ -10,7 +10,7 @@
 <div class="card ms-3" style="width: 18rem;background-color: #f0f0f0">
   <div class="card-body">
     <h5 class="card-title fw-bold"> <%= vendor.name %> - <%= vendor.id %></h5>
-    <p class="card-text"><%= vendor.contact_info %></p>
+    <p class="card-text"><strong>Contact Info:</strong><%= vendor.contact_info %></p>
    <a href="<%= edit_vendor_path(@vendor) %>" class="btn blue-button">Edit this vendor</a>
 
      <%= button_to "Destroy this vendor", @vendor, method: :delete, class: "btn btn-danger mt-3"%>
