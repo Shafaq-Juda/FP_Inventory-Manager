@@ -8,23 +8,23 @@
 
 <div class="text-center", style= "margin-top:20px;">
   <a href="/sales/new" style="font-size: 40px;"> <i class="bi bi-plus-circle-fill" style="color: #005493;"></i> </a>
-</div>
 
-<div class="container mt-2">
+  <div class="container mt-2">
 
-  <table class="table table-striped table-hover">
-    <tr>
-      <th>Name</th>
-      <th>Quantity Sold</th>
-      <th>Details</th>
-    </tr>
-    <% @sales.each do |sale| %>
+    <table class="table table-striped table-hover">
       <tr>
-        <td><%= sale.product.name %></td>
-        <td><%= sale.quantity_sold %></td>
-        <td><%= link_to "Details", sale_path(sale), class: "btn blue-button" %>
-        </td>
+        <th>Name</th>
+        <th>Quantity Sold</th>
+        <th>Details</th>
       </tr>
-    <% end %>
-  </table>
+      <% @sales.each do |sale| %>
+        <tr>
+          <td><%= sale.product.name %></td>
+          <td><%= sale.quantity_sold %></td>
+          <td><%= link_to "Details", sale_path(sale), class: "btn blue-button" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

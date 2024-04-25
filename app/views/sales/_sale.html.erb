@@ -15,7 +15,7 @@
       </div>
       <div class="col-md-5">
         <div class="card-body">
-          <h5 class="card-title fw-bold">  <%= sale.product.name %> - <%= link_to sale.product_id, product_path(sale.product) %>
+          <h5 class="card-title fw-bold">  <%= sale.product.name %> - <%= link_to "Details", product_path(sale.product) %>
           </h5>
           <p class="card-text">Quantity Sold: <%= sale.quantity_sold %></p>
           <p class="card-text">Sale Date: <%= sale.created_at.strftime("%B %e, %Y")  %></p>
