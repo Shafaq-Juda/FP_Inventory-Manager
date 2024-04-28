@@ -65,7 +65,7 @@
 }
 
 a:link {
-  color: #fff;
+  color: #DA8B34;
   background-color: transparent;
   text-decoration: none;
 }
@@ -77,7 +77,7 @@ a:visited {
 }
 
 a:hover {
-  color: #DA8B34;
+  color: #005493;
   background-color: transparent;
   text-decoration: underline;
 }
