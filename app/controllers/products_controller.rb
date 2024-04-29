@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
-   @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   # GET /products/new
@@ -62,19 +62,19 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
 
     respond_to do |format|
-      format.json { 
-        render json: product.quantity 
+      format.json {
+        render json: product.quantity
       }
     end
   end
 
   private
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    def product_params
-      params.require(:product).permit(:name, :description, :image, :price, :quantity, :barcode, :vendor_id)
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
+  def product_params
+    params.require(:product).permit(:name, :description, :image, :price, :quantity, :barcode, :vendor_id)
+  end
 end
