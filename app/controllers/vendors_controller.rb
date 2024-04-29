@@ -5,12 +5,11 @@ class VendorsController < ApplicationController
   def index
     @vendors = Vendor.all
     @products = Product.all
-
   end
 
   # GET /vendors/1 or /vendors/1.json
   def show
-    render { :vendors/:path }
+    render { :vendors / :path }
   end
 
   # GET /vendors/new
@@ -61,13 +60,14 @@ class VendorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_vendor
-      @vendor = Vendor.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def vendor_params
-      params.require(:vendor).permit(:name, :contact_info)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_vendor
+    @vendor = Vendor.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def vendor_params
+    params.require(:vendor).permit(:name, :contact_info)
+  end
 end

@@ -14,11 +14,10 @@
 #  vendor_id   :integer
 #
 class Product < ApplicationRecord
-  
   belongs_to :vendor, class_name: "Vendor", foreign_key: "vendor_id", optional: true
 
   has_many_attached :image
-  has_many  :sales, class_name: "Sale", foreign_key: "product_id", dependent: :destroy
+  has_many :sales, class_name: "Sale", foreign_key: "product_id", dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true
@@ -26,7 +25,7 @@ class Product < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :barcode, presence: true
   validates :vendor_id, presence: true
-  
+
   def update_quantity!(quantity_sold)
     update!(quantity: quantity - quantity_sold)
   end
