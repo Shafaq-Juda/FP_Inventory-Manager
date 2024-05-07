@@ -31,9 +31,16 @@ This Application is created in Ruby on Rails, also used ActiveRecords for databa
 ## Code Hygiene
 - On route file, great use of `unathenticated` block
 - Code is very readable! Good indentation and spacing throughout. Great job
+- Remove duplicate routes
+- Remove commented out code/line
 
 ## Backend
 - Sample data task is currently not working when we fork repo
+- No security or authorization practices were implemented. 
 
 ## Frontend
 - Improve mobile responsivity; app doesn't scale to mobile screen sizes
+- Inconsistent use of rails view helpers, especially link_to
+
+## Deployment
+- Good custom domain name
