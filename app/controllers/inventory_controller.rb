@@ -5,6 +5,7 @@ class InventoryController < ApplicationController
   end
 
   def sold
+    ## Remove unnecessary/commented out code
     # render {:sold}
     @products = Product.all.order(created_at: :desc)
 

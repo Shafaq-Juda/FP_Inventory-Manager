@@ -36,6 +36,7 @@ unless Rails.env.production?
 
       puts "done"
     end
+    # Unable to add products when running sample data task on my machine
     task add_products: :environment do
       users = User.all
       puts "adding products"
@@ -50,18 +51,18 @@ unless Rails.env.production?
           owner_id: users.sample.id,
           vendor_name: Faker::Company.name
         )
-      
+
         # Assign a random vendor to the product
         product.update(vendor_id: Vendor.pluck(:id).sample)
-        
+
         # Assuming the owner is the currently logged in user or a default user
         product.update(owner: users.sample)
 
       end
       puts "Added #{Product.count} products to the database!"
-    
+
     end
-    
+
 
     task add_vendors: :environment do
       puts "adding vendors"
