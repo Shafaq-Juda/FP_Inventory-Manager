@@ -14,5 +14,26 @@ This Application is designed to make you track your Inventory Status. Also you c
 
 This Application is created in Ruby on Rails, also used ActiveRecords for database and Bootstrap framework for CSS.
 
+<hr>
 
+# Code Review
 
+## Documentation
+- Good, concise description of the app
+- Lacking setup and installation instructions documentation that would help a new developer onboard to your project
+- Missing contribution guidelines? What can a new developer do to contribute.
+
+## Version Control
+- Good branching 
+- Great, descriptive commit messages
+- Missing issue tracking in github. Best practice is to create issue & link to pull request
+
+## Code Hygiene
+- On route file, great use of `unathenticated` block
+- Code is very readable! Good indentation and spacing throughout. Great job
+
+## Backend
+- Sample data task is currently not working when we fork repo
+
+## Frontend
+- Improve mobile responsivity; app doesn't scale to mobile screen sizes
