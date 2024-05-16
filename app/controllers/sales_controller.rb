@@ -8,7 +8,6 @@ class SalesController < ApplicationController
 
   # GET /sales/1 or /sales/1.json
   def show
-    # @sale = Sale.find(params[:id])
   end
 
   # GET /sales/new
@@ -25,10 +24,9 @@ class SalesController < ApplicationController
     @sale = Sale.new(sale_params)
     @product = Product.find(@sale.product_id)
     quantity = @product.quantity
-    
+
     respond_to do |format|
       if @sale.save
-       
         format.html { redirect_to sale_url(@sale), notice: "Sale was successfully created." }
         format.json { render :show, status: :created, location: @sale }
 
@@ -42,6 +40,7 @@ class SalesController < ApplicationController
       end
     end
   end
+
   # PATCH/PUT /sales/1 or /sales/1.json
   def update
     respond_to do |format|
@@ -66,11 +65,12 @@ class SalesController < ApplicationController
   end
 
   private
-    def set_sale
-      @sale = Sale.find(params[:id])
-    end
 
-    def sale_params
-      params.require(:sale).permit(:product_id, :quantity_sold)
-    end
+  def set_sale
+    @sale = Sale.find(params[:id])
+  end
+
+  def sale_params
+    params.require(:sale).permit(:product_id, :quantity_sold)
+  end
 end
